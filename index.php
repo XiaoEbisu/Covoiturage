@@ -5,3 +5,4 @@
   require_once "{$ROOT_FOLDER}{$DS}lib{$DS}file.php";
   require_once file::build_path(array("controller","router.php"));
  ?>
+aaa
