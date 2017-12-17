@@ -41,14 +41,14 @@
 		<div class="row">
 		<p class="col-lg-7 col-lg-push-5">
 			<label for="adr_RV_id">Adresse rdv : </label>
-			<input type="text" value="<?php echo $trajet->get('adv_RV');?>" name="adr_RV" id="adr_RV_id" required/>
+			<input type="text" value="<?php echo $trajet->get('adv_RV');?>" name="adr_RV" class="google_complete" id="adr_RV_id" required/>
 		</p>
 		</div>
 
 		<div class="row">
 		<p class="col-lg-7 col-lg-push-5">
 			<label for="adr_DP_id">Adresse Déposée : </label>
-			<input type="text" value="<?php echo $trajet->get('adv_DP');?>" size="15" name="adr_DP" id="adr_DP_id" required/>
+			<input type="text" value="<?php echo $trajet->get('adv_DP');?>" size="15" class="google_complete" name="adr_DP" id="adr_DP_id" required/>
 		</p>
 		</div>
 

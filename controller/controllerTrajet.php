@@ -102,9 +102,11 @@
 	//formulaire de tim trajet
 		public static function found(){
 			$tab_v = ModelTrajet::selectAll();
+			$tab_c = ModelTrajet::conducteur();
 			$vd1 = $_GET['vd'];
 			$va1 = $_GET['va'];
 			$date1 = $_GET['date'];
+
 			//$place = $_GET['place'];
 			$view = 'list';
 			$action ="found";

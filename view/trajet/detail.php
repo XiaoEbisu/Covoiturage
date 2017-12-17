@@ -38,7 +38,10 @@
   	echo '<p class="col-lg-7 col-lg-push-5"><i class="fa fa-calendar" aria-hidden="true"></i> Date : ' . $Date . '</p>';
   	echo '<p class="col-lg-7 col-lg-push-5"><i class="fa fa-clock-o" aria-hidden="true"></i> Heure : ' . $Heure . '</p>';
   	echo '<p class="col-lg-7 col-lg-push-5"><i class="fa fa-money" aria-hidden="true"></i> Prix : ' . $Prix . ' € </p>';
+    echo '</div>';
 
+
+    echo '<div class="row text-center">';
     if (($idUtilisateur != $conducteur) && ($bool == 0) ){
       if($places_Restant > 0){
         echo '<form>';
@@ -49,10 +52,11 @@
 
         
         for($i=1;$i <= $places_Restant; $i++){
-         // echo '<option value='. $i . '>'. $i . ' places </option>';
-          echo '<input type="text" name="Place(s)" value='.$i.' >';
+          echo '<option value='. $i . '>'. $i . ' places </option>';
+          // echo '<input type="text" name="Place(s)" value='.$i.' >';
         }
-
+        echo '</select>';
+        echo '        ';
         echo '<input type="submit" class=" btn btn-basic" value="Reserve">';
         echo  '</form>';
       }
@@ -60,7 +64,8 @@
         echo 'Pas de places disponible';
       }
     }
+    echo "</div>";
     
-    echo '</div>';
+    
 ?>
 

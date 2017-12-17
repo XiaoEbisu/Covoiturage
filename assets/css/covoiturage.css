@@ -2,3 +2,12 @@ body {
 	font-family: 'Oswald', Helvetica, Arial, sans-serif!important;
 }
 
+
+div.box_profile {
+	background-color: lightblue;
+    width: 300px;
+    border: 1px ;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 25px;
+}

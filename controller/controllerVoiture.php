@@ -101,7 +101,7 @@
       }
     }
 
-    public static function  update(){
+    public static function update(){
       if (isset($_SESSION['mail'])){
         $voiture = ModelVoiture::select($_GET['IdV']);
         $view = 'update';

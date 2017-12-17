@@ -33,6 +33,7 @@
           if(isset($_SESSION['mail'])) {
             echo '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> '. $_SESSION['prenom'] . '<span class="caret"></span></a>';
             echo '<ul class="dropdown-menu">';
+            echo '<li><a href="index.php?action=read&controller=utilisateur&mail='.$_SESSION['mail'].'"><i class="fa fa-address-card-o" aria-hidden="true"></i> Profile</a></li>';
             echo '<li><a href="index.php?action=update&controller=utilisateur"><i class="fa fa-cog" aria-hidden="true"></i> Modifier</a></li>';
             echo '<li><a href="index.php?action=mes_reservations&controller=trajet"><i class="fa fa-ticket" aria-hidden="true"></i> Mes réservations</a></li>';
             echo '<li><a href="index.php?action=mes_propositions&controller=trajet"><i class="fa fa-handshake-o" aria-hidden="true"></i> Mes propositions</a></li>';

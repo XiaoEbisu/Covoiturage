@@ -29,12 +29,22 @@
         require file::build_path(array("view","view.php"));
         //return ;
       }
-      $bool = isset($_GET['mail']);
+      $bool = (isset($_GET['mail']) || isset($_GET['IdU']));
       if ($bool) {
-        $v = ModelUtilisateur::select(ModelUtilisateur::getIdByMail($_GET['mail']));
+        if(isset($_GET['IdU'])){
+          $v = ModelUtilisateur::select($_GET['IdU']);
+          $voiture = ModelUtilisateur::voiture($_GET['IdU']);
+          $trajet = ModelUtilisateur::trajet($_GET['IdU']);
+        }
+        else{  
+          $v = ModelUtilisateur::select(ModelUtilisateur::getIdByMail($_GET['mail']));
+          $voiture = ModelUtilisateur::voiture(ModelUtilisateur::getIdByMail($_GET['mail']));
+          $trajet = ModelUtilisateur::trajet(ModelUtilisateur::getIdByMail($_GET['mail']));
+        }
       }
       if ($bool && $v){
         $controller = 'utilisateur';
+
         $view = 'detail';
         $pagetitle = 'Utilisateur';
         require file::build_path(array("view","view.php"));

@@ -44,7 +44,7 @@
 		<div class="row">
 		<p class="col-lg-7 col-lg-push-5">
 			<label for="adresse_id">* Adresse :</label>
-			<input type="text" value="<?php echo $user->get('adresse');?>" name="adresse" id="adresse_id" placeholder="e.g: Montpellier, France" required/>
+			<input type="text" value="<?php echo $user->get('adresse');?>" name="adresse" class="google_complete" id="adresse_id" placeholder="e.g: Montpellier, France" required/>
 		</p>
 		</div>
 		

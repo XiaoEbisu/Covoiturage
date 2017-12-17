@@ -234,5 +234,18 @@
         echo 'Exception reçue : ', $e->getMessage(), "\n";
       }
     }
+
+    //info conducteur
+    public static function conducteur(){
+      try{
+        $rep = model::$pdo->query("SELECT * FROM utilisateur");
+        $rep->setFetchMode(PDO::FETCH_CLASS, "ModelUtilisateur"); //return TRUE or FALSE
+        $res = $rep->fetchAll();
+        return $res;
+      }
+      catch (Exception $e){
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+      }
+    }
 }
 ?>

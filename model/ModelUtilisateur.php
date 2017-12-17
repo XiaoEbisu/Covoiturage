@@ -151,6 +151,7 @@
     }
     */
 
+
 //vérifier si la clé est bonne
     public static function veriUser($mail, $cle){
       try{
@@ -194,7 +195,6 @@
         $req_prep = model::$pdo->prepare($sql);
         $req_prep->execute($value);
         $res = $req_prep->rowCount();// $res = 1 => utilisateur exist
-
         return $res;
         
       }
@@ -217,7 +217,33 @@
       }
     }
 
-    
+    public static function voiture($IdU){
+      try{
+        $sql = "SELECT * FROM voiture WHERE IdU=:IdU_tag";
+        $value = array("IdU_tag" => $IdU);
+        $req_prep = model::$pdo->prepare($sql);
+        $req_prep->execute($value);
+        $res = $req_prep->fetchAll();
+        return $res;
+      }
+      catch (Exception $e){
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+      }
+    }
+
+    public static function trajet($IdU){
+      try {
+        $sql = "SELECT * FROM trajet WHERE IdU=:IdU_tag";
+        $value = array("IdU_tag" => $IdU);
+        $req_prep = model::$pdo->prepare($sql);
+        $req_prep->execute($value);
+        $res = $req_prep->rowCount();
+        return $res;
+      }
+      catch (Exception $e){
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+      }
+    }
 
   }
  ?>
