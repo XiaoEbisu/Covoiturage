@@ -6,20 +6,21 @@
     protected static $object = 'utilisateur';
 
     public static function readAll(){
-    /*  if (isset($_SESSION['mail'])){
-        $isAdmin = ModelUtilisateur::isAdmin($_SESSION['mail']));
-        if (isAdmin == 1) {
-        */
-
+      if (isset($_SESSION['mail'])){
+        if ($_SESSION['isAdmin'] == 1) {
           $tab_v = ModelUtilisateur::selectAll();
           $view = 'list';
           $controller = 'utilisateur';
           $pagetitle = 'Listes des utilisateurs';
           require file::build_path(array("view", "view.php"));// dan den file view/view.php
+        }
+      }
+      else {
+        $view = 'pasAdmin';
+        $pagetitle = 'erreur';
+        require file::build_path(array("view","view.php"));
+      }
     }
-
-    
-
 
     public static function read(){
       if (!isset($_SESSION['mail'])){
@@ -42,18 +43,25 @@
           $trajet = ModelUtilisateur::trajet(ModelUtilisateur::getIdByMail($_GET['mail']));
         }
       }
-      if ($bool && $v){
+      if ($bool && $v && ($_SESSION['isAdmin'] == 0)) {
         $controller = 'utilisateur';
-
         $view = 'detail';
         $pagetitle = 'Utilisateur';
         require file::build_path(array("view","view.php"));
       }
       else {
-        $view = 'pasExiste';
-        $controller = 'utilisateur';
-        $pagetitle = 'erreur';
-        require file::build_path(array("view", "view.php"));
+        if ($bool && $v && $_SESSION['isAdmin'] == 1) {
+          $controller = 'utilisateur';
+          $view = 'detailAdmin';
+          $pagetitle = 'Utilisateur';
+          require file::build_path(array("view","view.php"));
+          }
+          else{
+            $view = 'pasExiste';
+            $controller = 'utilisateur';
+            $pagetitle = 'erreur';
+            require file::build_path(array("view", "view.php"));
+          }
       }
     }
 
@@ -175,14 +183,24 @@
         if ($isConnect == 1){
           $idUtilisateur = ModelUtilisateur::getIdByMail($_GET['mail']);
           $res = ModelUtilisateur::select($idUtilisateur);
-          $_SESSION['mail'] = $_GET['mail'];
-          $_SESSION['IdU'] = $idUtilisateur;
-          $prenom = $res->get('prenom');
-          $_SESSION['prenom'] = $prenom;
-          $view = 'connected';
-          $controller = 'utilisateur';
-          $pagetitle = 'Bienvenue';
-          require file::build_path(array("view", "view.php"));
+          if ( $res->get('isBan') == 0){
+            $_SESSION['mail'] = $_GET['mail'];
+            $_SESSION['IdU'] = $idUtilisateur;
+            $prenom = $res->get('prenom');
+            $_SESSION['prenom'] = $prenom;
+            $_SESSION['isAdmin'] = $res->get('isAdmin');
+            $view = 'connected';
+            $controller = 'utilisateur';
+            $pagetitle = 'Bienvenue';
+            require file::build_path(array("view", "view.php"));
+          }
+          else {
+            $view = 'ban';
+            $controller = 'utilisateur';
+            $pagetitle = 'Erreur';
+            require file::build_path(array("view", "view.php"));
+
+          }
         }
         else {
           $view = 'erreurConnect';
@@ -279,7 +297,37 @@
     }
   }
 
-  
+  public static function ban(){
+    if (isset($_SESSION['mail']) && isset($_SESSION['isAdmin']) == 1){
+      ModelUtilisateur::banUser($_GET['IdU']);
+      $view = 'ban';
+      $controller = 'utilisateur';
+      $pagetitle = 'Black List';
+      require file::build_path(array("view","view.php"));
+    }
+    else {
+      $view = 'pasAdmin';
+      $controller = 'utilisateur';
+      $pagetitle = 'Désolé';
+      require file::build_path(array("view", "view.php")); 
+    }
+  }
+
+  public static function unban(){
+   if (isset($_SESSION['mail']) && isset($_SESSION['isAdmin']) == 1){
+      ModelUtilisateur::unbanUser($_GET['IdU']);
+      $view = 'unban';
+      $controller = 'utilisateur';
+      $pagetitle = 'White List';
+      require file::build_path(array("view","view.php"));
+      }
+    else {
+      $view = 'pasAdmin';
+      $controller = 'utilisateur';
+      $pagetitle = 'Désolé';
+      require file::build_path(array("view", "view.php")); 
+    }
+  }
 }
 
 ?>

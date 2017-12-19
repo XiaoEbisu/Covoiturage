@@ -18,11 +18,11 @@
 
        	<p class="col-lg-1 col-lg-push-3">
 			<label for="date_id"><i class="fa fa-calendar" aria-hidden="true"></i> Date :</label>
-			<input type="date" name="date" id="date_id" required/>
+			<input type="date" name="date" size="20" id="date_id" required/>
 		</p>
 
 		<p class="col-lg-1 col-lg-push-5">
-			<input type="submit" class="btn btn-basic" value="Chercher"/>
+			<input type="submit" class="btn btn-basic" value="Go ~"/>
 		</p>
 	</div>
 

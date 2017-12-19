@@ -29,7 +29,7 @@
 	echo '<br>';
 	echo '<hr>';
 	if ($_SESSION['mail'] == $mail){	
-		echo '<a href="index.php?action=mes_vehicules&controller=voiture"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i> <b>Véhicules</b></a><br>';
+		echo '<a href="index.php?action=mes_vehicules&controller=voiture"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <b>Véhicules</b></a><br>';
 	}
 	else {
 		echo '<b> Véhicules</b><br>';
@@ -43,7 +43,9 @@
 	
 	if ($_SESSION['mail'] != $mail){
 		echo '<hr>';
-		echo '<a href="#"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Signaler ce membre </a>';
+		
+		echo '<a href="#myPopup" data-rel="popup" ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Signaler ce membre</a>';
+		
 	}
 
 

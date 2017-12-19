@@ -44,16 +44,14 @@
     echo '<div class="row text-center">';
     if (($idUtilisateur != $conducteur) && ($bool == 0) ){
       if($places_Restant > 0){
+
         echo '<form>';
         echo '<input type="hidden" name="action" value="reserver"/>';
         echo '<input type="hidden" name="controller" value="trajet"/>';
         echo '<input type="hidden" name="Id_Trajet" value=" '. $v->get('Id_Trajet') .'"/>';
-        echo '<select name="place">';
-
-        
+        echo '<select name="place">'; 
         for($i=1;$i <= $places_Restant; $i++){
           echo '<option value='. $i . '>'. $i . ' places </option>';
-          // echo '<input type="text" name="Place(s)" value='.$i.' >';
         }
         echo '</select>';
         echo '        ';

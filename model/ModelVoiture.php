@@ -6,8 +6,7 @@
     private $IdU;
     private $type;
     private $place;
-        
-        
+             
     protected static $object = 'voiture';
     protected static $primary ='IdV';
 

@@ -1,5 +1,8 @@
 body {
 	font-family: 'Oswald', Helvetica, Arial, sans-serif!important;
+  position:relative;
+  padding-bottom: 120px; 
+  margin:0 0 0px;
 }
 
 
@@ -10,4 +13,30 @@ div.box_profile {
     border-radius: 5px;
     padding: 25px;
     margin: 25px;
+}
+
+.container{
+  margin-bottom: 50px; /*cree une espace au dessous de contenant pour le footer*/
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.container{
+  padding-bottom:50px;
+}
+
+footer{
+  position:absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+footer p{
+  font-size:0.4em;
 }

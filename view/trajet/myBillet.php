@@ -7,6 +7,7 @@
       <th class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Heure</th>
       <th class="text-center"><i class="fa fa-money" aria-hidden="true"></i> Prix</th> 
       <th class="text-center"><i class="fa fa-info" aria-hidden="true"></i></th>
+      <th class="text-center"><i class='fa fa-pencil-square-o' aria-hidden='true'></i></th>
     </tr>
   </thead>
 
@@ -34,8 +35,8 @@
           echo "<td>" . $bVa . "</td>";
   				echo "<td>" . $bHeure . "</td>";
   				echo "<td>" . $bPrix . " € </td>";
-          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Détail' onclick=window.location.href='index.php?action=read&controller=trajet&Id_Trajet=" . $bId ."' > ". " " . "<input type='button' class='btn btn-basic btn-sm' value='Supprimer' onclick=window.location.href='index.php?action=supprimerReservation&controller=trajet&IdU=" . $idUtilisateur . "&Id_Trajet=" . $bId ."'></td>";
-
+          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Détail' onclick=window.location.href='index.php?action=read&controller=trajet&Id_Trajet=" . $bId ."' ></td>";
+          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Supprimer' onclick=window.location.href='index.php?action=supprimerReservation&controller=trajet&IdU=" . $idUtilisateur . "&Id_Trajet=" . $bId ."'></td>";
   				echo "</tr>";
   			}
   		}

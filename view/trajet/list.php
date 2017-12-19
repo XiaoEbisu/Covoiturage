@@ -13,7 +13,7 @@
 ?>
 
 
-<table class="table table-striped">
+<table id="myTable" class="table table-striped">
   <thead>
     <tr>
       <th class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Conducteur</th>
@@ -67,6 +67,11 @@
     echo '</div>';
   }
   ?>
+
+
+<script type="text/javascript" src="assets/js/jquery.tablesorter.js"></script>
+<script type="text/javascript" src="assets/js/jquery-latest.js"></script>
+
 
 
 

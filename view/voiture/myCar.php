@@ -5,6 +5,7 @@
       <th class="text-center">Immatriculation</th>
       <th class="text-center">Marque</th>
       <th class="text-center">Place(s)</th>
+      <th class="text-center"><i class="fa fa-info" aria-hidden="true"></i></th>
     </tr>
   </thead>
 
@@ -23,8 +24,8 @@
           echo "<td>" . $cIdV . "</td>";
           echo "<td>" . $cType . "</td>";
           echo "<td>" . $cPlace . "</td>";
-          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Supprimer' onclick=window.location.href='index.php?action=supprimerVoiture&controller=voiture&IdV=" .$cIdV. "'>
-          <input type='button' class='btn btn-basic btn-sm' value='Modifier' onclick=window.location.href='index.php?action=update&controller=voiture&IdV=" .$cIdV."'></td>";
+          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Supprimer' size='10' onclick=window.location.href='index.php?action=supprimerVoiture&controller=voiture&IdV=" .$cIdV. "'></td>";
+          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Modifier' onclick=window.location.href='index.php?action=update&controller=voiture&IdV=" .$cIdV."'></td>";
   				echo "</tr>";
   			}
   		}
@@ -40,5 +41,5 @@
 </div>
 
 <p class="text-center">
-	<input type="button" class="btn btn-basic" value="Ajouter un véhicule" onclick="window.location.href='index.php?action=create&controller=voiture'" />
+	<input type="button" class="btn btn-basic btn-sm" value="Ajouter un véhicule" onclick="window.location.href='index.php?action=create&controller=voiture'" />
 </p>

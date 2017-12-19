@@ -245,5 +245,29 @@
       }
     }
 
+    public static function banUser($IdU){
+      try{
+        $sql = "UPDATE utilisateur SET isBan = 1 WHERE IdU=:IdU_tag";
+        $value = array( "IdU_tag" => $IdU);
+        $req_prep = model::$pdo->prepare($sql);
+        $req_prep->execute($value);
+      }
+      catch (Exception $e){
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+      }
+    }
+
+    public static function unbanUser($IdU){
+      try{
+        $sql = "UPDATE utilisateur SET isBan = 0 WHERE IdU=:IdU_tag";
+        $value = array( "IdU_tag" => $IdU);
+        $req_prep = model::$pdo->prepare($sql);
+        $req_prep->execute($value);
+      }
+      catch (Exception $e){
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+      }
+    }
+
   }
  ?>

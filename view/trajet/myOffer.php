@@ -7,6 +7,7 @@
       <th class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i> Heure</th>
       <th class="text-center"><i class="fa fa-money" aria-hidden="true"></i> Prix</th> 
       <th class="text-center"><i class="fa fa-info" aria-hidden="true"></i></th>
+      <th class="text-center"><i class='fa fa-pencil-square-o' aria-hidden='true'></i></th>
     </tr>
   </thead>
 
@@ -32,7 +33,8 @@
           echo "<td>" . $oVa . "</td>";
           echo "<td>" . $oHeure . "</td>";
           echo "<td>" . $oPrix . " € </td>";
-          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Détail' onclick=window.location.href='index.php?action=read&controller=trajet&Id_Trajet=" . $oId ."' > ". " " . "<input type='button' class='btn btn-basic btn-sm' value='Supprimer' onclick=window.location.href='index.php?action=supprimerProposition&controller=trajet&Id_Trajet=" . $oId ."'></p></td>";
+          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Détail' onclick=window.location.href='index.php?action=read&controller=trajet&Id_Trajet=" . $oId ."' ></td>";
+          echo "<td><input type='button' class='btn btn-basic btn-sm' value='Supprimer' onclick=window.location.href='index.php?action=supprimerProposition&controller=trajet&Id_Trajet=" . $oId ."'></p></td>";
           echo "</tr>";
         }
       }
