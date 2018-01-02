@@ -23,10 +23,9 @@
 		public static function read(){  //read detail 1 trajet
 			$v = ModelTrajet::select($_GET['Id_Trajet']);
 			if ($v){
-
+				$driver = ModelTrajet::conducteur();
 				$tab_guest = ModelTrajet::my_guest($_GET['Id_Trajet']);
 				$places_Restant = ModelTrajet::verif_place_restant($v->get('Id_Trajet'));
-
 				$controller = 'trajet';
 				$view = 'detail';
 				$pagetitle = 'trajet';

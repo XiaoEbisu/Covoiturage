@@ -30,12 +30,13 @@
 		<td>
 			<label for="type_voiture_id">Type voiture : </label>
 			<select name ="type_voiture">
-				<?php foreach ($listVoiture as $v) {
-					echo "<option value='". $trajet->get('type_voiture') . "'>". $v->type ."</option>";
+
+				<?php 
+				foreach ($listVoiture as $v) {
+					echo "<option value='". $v->get('type') . "'>". $v->get('type') ."</option>";
 				}
 				?>
 			</select>
-
 		</td>
 
 		<td>
@@ -70,21 +71,16 @@
 
 	<tr>
 		<td>
-			<label for="prix_id">Prix : </label>
+			<label for="prix_id">Prix (par place) € : </label>
 			<input type="number" value="<?php echo $trajet->get('prix');?>" name="prix" id="prix_id" required/>
 		</td>
 		<td>
-			<label>. </label>
+			<label>&nbsp </label>
 			<input type="submit" class=" btn btn-basic" value="Proposer"/>
 		</td>
 	</tr>
 	</table>
 </div>
 
-	<!--<div class="text-center">
-
-			<input type="submit" class=" btn btn-basic" value="Proposer"/>
-		
-	</div>-->
 	</fieldset>
 </form>

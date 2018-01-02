@@ -1,0 +1,36 @@
+.rating {
+ 
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span i {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.rating span:hover ~ span i,
+.rating span:hover i,
+.rating span.checked i,
+.rating span.checked ~ span i {
+    background:#F90;
+    color:#FFF;
+}
+
+
+input#description_id{
+    width:80%;
+    height:200px;
+}

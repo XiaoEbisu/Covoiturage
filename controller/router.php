@@ -2,7 +2,7 @@
   require_once file::build_path(array("controller","controllerUtilisateur.php"));
   require_once file::build_path(array("controller","controllerTrajet.php"));
   require_once file::build_path(array("controller","controllerVoiture.php"));
-
+  require_once file::build_path(array("controller","controllerAvis.php"));
 
   //controller
   if (isset($_GET['controller'])) {

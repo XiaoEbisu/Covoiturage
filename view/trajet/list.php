@@ -41,25 +41,31 @@
 
         foreach ($tab_c as $c){
           $cIdU = htmlspecialchars($c->get('IdU'));
+          $cBan = htmlspecialchars($c->get('isBan'));
           $cNom = htmlspecialchars($c->get('nom'));
           $cPrenom = htmlspecialchars($c->get('prenom'));
 
-          if ($vIdU == $cIdU){
+
+          if (($vIdU == $cIdU) && ($cBan != 1)){
             if (!isset($_SESSION['mail'])){
               echo "<td>" . $cNom . " " . $cPrenom . "</td>";
-            }
+              echo "<td>" . $vDate ."</td>";
+              echo "<td>" . $vHeure . "</td>";
+              echo "<td><a href='index.php?action=read&controller=trajet&Id_Trajet=". $vId . "'>" . $vPrix . " €</td>";
+              echo "</tr>";
+                }
             else{
-              echo "<td><a href='index.php?action=read&controller=utilisateur&IdU=" . $vIdU ."'>" . $cNom . " " . $cPrenom . "</td>";
+              echo "<td><a href='index.php?action=read&controller=utilisateur&IdU=" . $vIdU ."'>" . $cNom . " " . $cPrenom . "</a></td>";
+              echo "<td>" . $vDate ."</td>";
+              echo "<td>" . $vHeure . "</td>";
+              echo "<td><a href='index.php?action=read&controller=trajet&Id_Trajet=". $vId . "'>" . $vPrix . " €</a></td>";
+              echo "</tr>";
             }
           }
-        }
-          
-          echo "<td>" . $vDate ."</td>";
-  				echo "<td>" . $vHeure . "</td>";
-  				echo "<td><a href='index.php?action=read&controller=trajet&Id_Trajet=". $vId . "'>" . $vPrix . " €</td>";
-  				echo "</tr>";
+        } 
   		}
-  	}
+  	
+    }
     echo "</table>";
     if($compteur == 0){
     echo '<div class= "alert alert-warning text-center"> ';

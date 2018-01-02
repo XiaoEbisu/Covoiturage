@@ -28,7 +28,7 @@
         $controller = 'utilisateur';
         $pagetitle='pas Connect';
         require file::build_path(array("view","view.php"));
-        //return ;
+        return ;
       }
       $bool = (isset($_GET['mail']) || isset($_GET['IdU']));
       if ($bool) {
@@ -36,11 +36,20 @@
           $v = ModelUtilisateur::select($_GET['IdU']);
           $voiture = ModelUtilisateur::voiture($_GET['IdU']);
           $trajet = ModelUtilisateur::trajet($_GET['IdU']);
+          $totalStar = ModelUtilisateur::totalStar($_GET['IdU']);
+          $totalAvis = ModelUtilisateur::totalAvis($_GET['IdU']);
+          $total = ModelAvis::totalStar($_SESSION['IdU']);
+          $tab_v = ModelAvis::my_review($_SESSION['IdU']);
         }
         else{  
           $v = ModelUtilisateur::select(ModelUtilisateur::getIdByMail($_GET['mail']));
           $voiture = ModelUtilisateur::voiture(ModelUtilisateur::getIdByMail($_GET['mail']));
           $trajet = ModelUtilisateur::trajet(ModelUtilisateur::getIdByMail($_GET['mail']));
+          $totalStar = ModelUtilisateur::totalStar(ModelUtilisateur::getIdByMail($_SESSION['mail']));
+          $totalAvis = ModelUtilisateur::totalAvis(ModelUtilisateur::getIdByMail($_SESSION['mail']));
+          $total = ModelAvis::totalStar(ModelUtilisateur::getIdByMail($_SESSION['mail']));
+          $tab_v = ModelAvis::my_review(ModelUtilisateur::getIdByMail($_SESSION['mail']));
+
         }
       }
       if ($bool && $v && ($_SESSION['isAdmin'] == 0)) {

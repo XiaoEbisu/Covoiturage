@@ -1,5 +1,5 @@
 <div class="alert alert-warning text-center">
 	<p>
-		 Vous n'êtes pas connecté !
+		Vous pouvez participer plus de voyages pour avoir d'avis 
 	</p>
 </div>

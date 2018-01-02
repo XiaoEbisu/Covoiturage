@@ -8,15 +8,20 @@ body {
 
 div.box_profile {
 	background-color: lightblue;
-    width: 300px;
-    border: 1px ;
-    border-radius: 5px;
-    padding: 25px;
-    margin: 25px;
+  width: 300px;
+  border: 1px ;
+  border-radius: 5px;
+  padding: 25px;
+  margin: 25px;
+}
+
+div.profile{
+  background-color: lightblue;
+
 }
 
 .container{
-  margin-bottom: 50px; /*cree une espace au dessous de contenant pour le footer*/
+  margin-bottom: 100px; /*cree une espace au dessous de contenant pour le footer*/
 }
 
 .sticky {

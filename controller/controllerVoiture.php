@@ -122,7 +122,7 @@
     public static function modifier(){
       if (!isset($_SESSION['mail'])){
         $view = 'pasConnect';
-        $pagetitle = 'Veuillez_vous connecter';
+        $pagetitle = 'Veuillez-vous connecter';
         require file::build_path(array("view","view.php"));
       }
 

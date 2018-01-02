@@ -46,7 +46,7 @@
             echo '<li><a href="index.php?action=mes_reservations&controller=trajet"><i class="fa fa-ticket" aria-hidden="true"></i> Mes réservations</a></li>';
             echo '<li><a href="index.php?action=mes_propositions&controller=trajet"><i class="fa fa-handshake-o" aria-hidden="true"></i> Mes propositions</a></li>';
             echo '<li><a href="index.php?action=mes_vehicules&controller=voiture"><i class="fa fa-car" aria-hidden="true"></i> Véhicule </a></li>';
-            echo '<li><a href ="#"><i class="fa fa-commenting-o" aria-hidden="true"></i> Message</a></li>';
+            echo '<li><a href ="index.php?action=mes_avis&controller=avis"><i class="fa fa-commenting-o" aria-hidden="true"></i> Mes Avis</a></li>';
 //--------------- IS ADMIN-------------
             if ($_SESSION['isAdmin'] == 1){
               echo '<li><a href="index.php?action=readAll&controller=utilisateur"><i class="fa fa-list-ul" aria-hidden="true"></i> Liste des utilisateurs</a></li>';

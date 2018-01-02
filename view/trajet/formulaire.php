@@ -34,4 +34,3 @@
 	</fieldset>
 </form>
 
-<script type ="text/javascript" src="assets/auto_completion/ville.js?libraries=places&; sensor=false"></script>

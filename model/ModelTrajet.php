@@ -227,7 +227,8 @@
         $value = array("IdU_tag" => $IdU);
         $req_prep = model::$pdo->prepare($sql);
         $req_prep->execute($value);
-        $res = $req_prep->fetchAll(PDO::FETCH_OBJ);
+        $req_prep->setFetchMode(PDO::FETCH_CLASS,"ModelVoiture");
+        $res = $req_prep->fetchAll();
         return $res;
       }
       catch (Exception $e){

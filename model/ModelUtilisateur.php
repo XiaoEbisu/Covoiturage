@@ -245,6 +245,64 @@
       }
     }
 
+      public static function my_review($IdU){
+      try{
+        $sql = "SELECT * FROM avis WHERE IdU=:IdU_tag";
+        $value = array("IdU_tag" => $IdU);
+        $req_prep = model::$pdo->prepare($sql);
+        $req_prep->execute($value);
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, "ModelAvis");
+        $res = $req_prep->fetchAll();
+        return $res;
+      }
+      catch (Exception $e){
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+      }
+    }
+
+    public static function totalStar($IdU){
+      try{
+        $sql = "SELECT COUNT(IdA) AS totalStar FROM avis WHERE IdU=:IdU_tag";
+        $value = array("IdU_tag" => $IdU);
+        $req_prep = model::$pdo->prepare($sql);
+        $req_prep->execute($value);
+        $res = $req_prep->fetch(PDO::FETCH_ASSOC);
+        $total = $res['totalStar'];
+
+        $sql = "SELECT SUM(etoile) AS sommeStar FROM avis WHERE IdU=:IdU_tag";
+        $value = array( "IdU_tag" => $IdU);
+        $req_prep = model::$pdo->prepare($sql);
+        $req_prep->execute($value);
+        $row = $req_prep->fetch(PDO::FETCH_ASSOC);
+        $somme = $row['sommeStar'];
+
+        if ($total == 0){
+          return 0;
+        }
+        else{
+          return $somme/$total;
+        }
+      }
+      catch(Exception $e){
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+      }
+    }
+
+    public static function totalAvis($IdU){
+      try{
+        $sql = "SELECT COUNT(IdA) AS totalStar FROM avis WHERE IdU=:IdU_tag";
+        $value = array("IdU_tag" => $IdU);
+        $req_prep = model::$pdo->prepare($sql);
+        $req_prep->execute($value);
+        $res = $req_prep->fetch(PDO::FETCH_ASSOC);
+        $total = $res['totalStar'];
+        return $total;
+      }
+      catch(Exception $e){
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+      }
+    }
+
     public static function banUser($IdU){
       try{
         $sql = "UPDATE utilisateur SET isBan = 1 WHERE IdU=:IdU_tag";

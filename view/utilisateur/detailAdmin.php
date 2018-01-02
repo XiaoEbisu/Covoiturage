@@ -32,6 +32,15 @@
 		echo $nomVoiture . ' (' . $place .' places)<br>';
 	}
 	echo '<hr>';
-	echo '<b> Avis </b>';
+	if (isset($_SESSION['mail'])){
+		if (($_SESSION['mail']) != $mail){
+			echo '<a href="index.php?action=create&controller=avis&IdU='. $IdU .'"><b>Avis</b></a><br>';
+			echo 'Avis moyen : ' . $totalStar .'/5 - ' .$totalAvis. ' avis <br>';
+		}
+		else {
+			echo '<b>Avis</b><br>';
+			echo 'Avis moyen : ' . $totalStar .'/5 - ' .$totalAvis. ' avis <br>';
+		}
+	}
 ?>
 </div>

@@ -12,9 +12,12 @@ $().ready(function(){
   var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
   $("#myTable").tablesorter();
+
+//tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
 });
 
-//sticky nav
+/*//sticky nav
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("navbar");
@@ -27,4 +30,6 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+*/
 
+//tooltip

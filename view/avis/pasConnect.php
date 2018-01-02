@@ -1,5 +1,5 @@
 <div class="alert alert-warning text-center">
 	<p>
-		 Vous n'êtes pas connecté !
+		Veuillez connecter pour pouvoir réserver un trajet !
 	</p>
 </div>
